@@ -1,0 +1,22 @@
+#sign-up {
+    color: #1BA098;
+}
+
+h1 {
+    color: #1BA098;
+}
+
+.log-reg-container {
+    background-color: #112d32;
+    padding: 20px 100px;
+    border-radius: 25px;
+}
+
+.log-reg {
+    align-items: space-around;
+    padding: 20px 40px;
+}
+
+button {
+    background-color: #1BA098;
+}

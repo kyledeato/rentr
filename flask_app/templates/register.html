@@ -6,10 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
-    <title>Register | Rentr</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/log-and-reg.css') }}">
+    <title>Login | Rentr</title>
 </head>
 <body>
     
+    <main class="flex-display justify-center align-center">
+        
+        <div class="log-reg-container flex-display">
+            <div class="log-reg">
+                <!-- need img  -->
+                <h1 id="logo">RENTR.</h1>
+                <p>Image goes here</p>
+                <p>Make renting anything easy! </p>
+            </div>
+            <form class="log-reg" action="/register-account" method="post">
+                <h1>Create An Account</h1>
+                <p>Join to get started!</p>
+                {% with messages = get_flashed_messages()%}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control"  placeholder="First name" name="first_name">
+                </div>
+                <div class="form-group">
+                    <label for="first_name">Last Name</label>
+                    <input type="text" class="form-control"  placeholder="Last name" name="last_name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+                </div>
+                <button type="submit" class="btn ">Login</button>
+                <p>Already have an account? <a href="/login" id="sign-up">Login</a></p>
+            </form>
+        </div>
+    </main>
 </body>
 </html>

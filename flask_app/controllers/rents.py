@@ -5,11 +5,16 @@ from flask_app import app
 # DASHBOARD
 @app.route('/')
 def index():
-    return redirect('/dashboard')
+    return redirect('/rentboard')
 
 @app.route('/dashboard')
 def dashboard():
+    # can only view dashboard if account true else go to login page
+    if 'user_id' not in session:
+        return redirect('/login')
     return render_template('dashboard.html')
 
-@app.route('/rent-board')
+@app.route('/rentboard')
+def rentboard():
+    return render_template('rentboard.html')
 

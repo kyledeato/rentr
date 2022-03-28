@@ -6,10 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/log-and-reg.css') }}">
     <title>Login | Rentr</title>
 </head>
 <body>
     
+    <main class="flex-display justify-center align-center">
+       
+        <div class="log-reg-container flex-display">
+            <div class="log-reg">
+                <!-- need img  -->
+                <h1 id="logo">RENTR.</h1>
+                <p>Image goes here</p>
+                <p>Make renting anything easy! </p>
+            </div>
+            <form class="log-reg" action="/login-account" method="post">
+                <h1>Login</h1>
+                <p>Welcome back! We've missed you!</p>
+                {% with messages = get_flashed_messages()%}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p id="flash-message">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn ">Login</button>
+                <p>Dont have an account? <a href="/register" id="sign-up">Sign-up</a></p>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
