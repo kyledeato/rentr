@@ -1,6 +1,7 @@
 from flask import render_template, session, redirect, request
 from flask_app import app
 from flask_app.models.user import User
+from flask_app.models.rent import Rent
 
 # LOGINS AND REGISTRATION
 @app.route('/login')
@@ -20,7 +21,9 @@ def logout():
 
 @app.route('/account')
 def account():
-    return render_template('account.html')
+    data = {"id": session["user_id"]}
+    users = User.get_by_id(data)
+    return render_template('account.html', users = users)
 
     # action routes
 @app.route('/register-account',methods=['POST'])
@@ -38,4 +41,20 @@ def login_account():
     session['user_id'] = user.id
     print(f"logged in as id:{session['user_id']}")
     return redirect('/dashboard')
+
+@app.route('/update', methods=['POST'])
+def update():
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        "first_name": request.form["first_name"],
+        "last_name": request.form["last_name"],
+        "email": request.form["email"],
+        "user_id": session["user_id"]
+    }
+    if not User.update_is_valid(data):
+        return redirect('/account')
+
+    User.update(data)
+    return redirect('/account')
 

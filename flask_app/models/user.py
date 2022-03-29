@@ -37,6 +37,36 @@ class User:
         result = connectToMySQL('rentr_db').query_db(query, data)
         if result:
             return cls(result[0])
+    
+    @classmethod
+    def get_by_id(cls, data):
+        query = 'SELECT * FROM users WHERE id = %(id)s'
+        result = connectToMySQL('rentr_db').query_db(query, data)
+        if result:
+            return cls(result[0])
+    
+
+    
+    @classmethod
+    def update(cls, data):
+        query = 'UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s WHERE id = %(user_id)s;'
+        connectToMySQL('rentr_db').query_db(query, data)
+        
+    @staticmethod
+    def update_is_valid(user):
+        is_valid = True
+        if EMAIL_REGEX.match(user['email']):
+            is_valid = True
+        else:
+            flash("Invalid email address")
+            is_valid = False
+        if len(user['first_name']) < 2:
+            flash("First name must be at least 2 characters.")
+            is_valid = False
+        if len(user['last_name']) < 2: 
+            flash("Last name must be at least 2 characters.")
+            is_valid = False
+        return is_valid
 
         
     @staticmethod

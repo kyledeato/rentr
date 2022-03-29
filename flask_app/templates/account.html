@@ -25,17 +25,30 @@
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       <main>
-        <h1>Dashboard</h1>
-        <div class="user-rents">
-            <h2>Current Postings</h2>
-                {% for rent in rents%}
-                <div class="rents">
-                    <h4>{{rent.name}}</h4>
-                    <p>{{rent.description}}</p>
-                    <p>Location: {{rent.location}}</p>
-                    <p>Posted at: {{rent.created_at}}</p>
+        <h1>Account</h1>
+        <div class="create">
+            <form action="/update" method="post" >
+                {% with messages = get_flashed_messages()%}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p id="flash-message">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control"   value="{{users.first_name}}" name="first_name">
                 </div>
-                {% endfor %}
+                <div class="form-group">
+                    <label for="first_name">Last Name</label>
+                    <input type="text" class="form-control" value="{{users.last_name}}"  name="last_name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" value="{{users.email}}"  name="email">
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>    
         </div>
     </main>
         <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
