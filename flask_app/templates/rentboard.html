@@ -12,12 +12,13 @@
 <body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">Home</a>
-        <a href="#">Rent Board</a>
-        <a href="#">Create A Posting</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/rentboard">Rent Board</a>
+        <a href="/create">Create A Posting</a>
         <a href="#">View Your Rents</a>
         <a href="#">My Account</a>
-        <a href="#">Logout</a>
+        <a href="/login">Login</a>
+        <a href="/logout">Logout</a>
       </div>
       
       <!-- Use any element to open the sidenav -->
@@ -25,9 +26,15 @@
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       <main>
-        <h1>Rent Boad</h1>
+        <h1>Rent Board</h1>
         <div class="rent-board">
-
+        {% for rent in rents %}
+        <div class="rents">
+            <h3>{{rent.creator.first_name}} {{rent.creator.last_name}}</h3>
+            <h5>{{rent.name}}</h5>
+            <p>{{rent.description}}</p>
+        </div>
+        {% endfor %}
         </div>
     </main>
         <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
