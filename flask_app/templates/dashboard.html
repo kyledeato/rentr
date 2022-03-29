@@ -15,7 +15,6 @@
         <a href="/dashboard">Dashboard</a>
         <a href="/rentboard">Rent Board</a>
         <a href="/create">Create A Posting</a>
-        <a href="#">View Your Rents</a>
         <a href="#">My Account</a>
         <a href="/login">Login</a>
         <a href="/logout">Logout</a>
@@ -27,8 +26,16 @@
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       <main>
         <h1>Dashboard</h1>
-        <div class="rent-board">
-
+        <div class="user-rents">
+            <h2>Current Postings</h2>
+                {% for rent in rents%}
+                <div class="rents">
+                    <h4>{{rent.name}}</h4>
+                    <p>{{rent.description}}</p>
+                    <p>Location: {{rent.location}}</p>
+                    <p>Posted at: {{rent.created_at}}</p>
+                </div>
+                {% endfor %}
         </div>
     </main>
         <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>

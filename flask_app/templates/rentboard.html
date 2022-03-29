@@ -15,7 +15,6 @@
         <a href="/dashboard">Dashboard</a>
         <a href="/rentboard">Rent Board</a>
         <a href="/create">Create A Posting</a>
-        <a href="#">View Your Rents</a>
         <a href="#">My Account</a>
         <a href="/login">Login</a>
         <a href="/logout">Logout</a>
@@ -30,9 +29,9 @@
         <div class="rent-board">
         {% for rent in rents %}
         <div class="rents">
-            <h3>{{rent.creator.first_name}} {{rent.creator.last_name}}</h3>
-            <h5>{{rent.name}}</h5>
+            <h2>{{rent.name}}</h2>
             <p>{{rent.description}}</p>
+            <p>Posted by: {{rent.creator.first_name}} {{rent.creator.last_name}}</p>
         </div>
         {% endfor %}
         </div>

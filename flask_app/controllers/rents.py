@@ -14,7 +14,9 @@ def dashboard():
     # can only view dashboard if account true else go to login page
     if 'user_id' not in session:
         return redirect('/login')
-    return render_template('dashboard.html')
+    data = {"id": session['user_id']}
+    rents = Rent.get_rents_by_id(data)
+    return render_template('dashboard.html', rents = rents)
 
 @app.route('/rentboard')
 def rentboard():

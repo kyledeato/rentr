@@ -13,8 +13,14 @@ def register():
 
 @app.route('/logout')
 def logout():
+    if 'user_id' not in session:
+        return redirect('/login')
     session.clear()
     return redirect('/dashboard')
+
+@app.route('/account')
+def account():
+    return render_template('account.html')
 
     # action routes
 @app.route('/register-account',methods=['POST'])
@@ -32,3 +38,4 @@ def login_account():
     session['user_id'] = user.id
     print(f"logged in as id:{session['user_id']}")
     return redirect('/dashboard')
+

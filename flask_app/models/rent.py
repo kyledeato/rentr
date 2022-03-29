@@ -8,6 +8,7 @@ class Rent:
         self.id = data['id']
         self.name = data['name']
         self.description = data['description']
+        self.location = data['location']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
     
@@ -31,6 +32,18 @@ class Rent:
                 temp_rents.creator = user.User(user_data)
                 rents.append(temp_rents)
             return rents
+
+    @classmethod
+    def get_rents_by_id(cls, data):
+        query = 'SELECT * FROM rents JOIN users ON rents.user_id = users.id WHERE users.id = %(id)s'
+        results = connectToMySQL('rentr_db').query_db(query, data)
+        rents = []
+        if results:
+            for row in results:
+                temp_rents = cls(row)
+                rents.append(temp_rents)
+        return rents
+
 
     @classmethod
     def create(cls, data):
