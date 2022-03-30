@@ -2,6 +2,9 @@ from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 from flask_app import app
 from flask_app.models import user
+import re
+
+img_id = 0
 
 class Rent: 
     def __init__(self, data):
@@ -9,6 +12,7 @@ class Rent:
         self.name = data['name']
         self.description = data['description']
         self.location = data['location']
+        self.image_name = data['image_name']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
     
@@ -25,6 +29,7 @@ class Rent:
                     "first_name": row["first_name"],
                     "last_name": row["last_name"],
                     "email": row["email"],
+                    "image_name": row["image_name"],
                     "password": row["password"],
                     "created_at": row["users.created_at"],
                     "updated_at": row["users.updated_at"]
@@ -46,13 +51,24 @@ class Rent:
 
 
     @classmethod
-    def create(cls, data):
-        query = 'INSERT INTO rents (name, description, location, user_id) VALUES (%(name)s, %(description)s, %(location)s, %(user_id)s)'
+    def save(cls, data):
+        query = 'INSERT INTO rents (name, description, location, image_name, user_id) VALUES (%(name)s, %(description)s, %(location)s, %(image_name)s ,%(user_id)s)'
         return connectToMySQL('rentr_db').query_db(query, data)
     
+    @classmethod
+    def get_img(cls):
+        query = 'SELECT image FROM rents WHERE id = 3;'
+        return connectToMySQL('rentr_db').query_db(query)    
+
+
     @staticmethod
     def is_valid(data):
         is_valid = True
+        query = 'SELECT * FROM rents WHERE image_name = %(image_name)s'
+        results = connectToMySQL('rentr_db').query_db(query, data)
+        if len(results) >= 1:
+            flash("Image name taken, try putting bunch of random numbers after.")
+            is_valid = False
         if len(data['name']) < 2:
             flash("Name must be at least 2 characters long.")
             is_valid = False
@@ -62,4 +78,13 @@ class Rent:
         if len(data['location']) < 5:
             flash("Location should be at least 5 characters long.")
             is_valid = False
+        if len(data['image_name']) < 4:
+            flash("Location should be at least 4 characters long.")
+            is_valid = False
         return is_valid
+
+    # replace all whitespace on image name with -
+    @staticmethod
+    def no_space(data):
+        data = re.sub(r"\s+", '-', data)
+        return data

@@ -5,7 +5,7 @@ class MySQLConnection:
                                     user = 'root', # change the user and password as needed
                                     password = 'rootroot', 
                                     db = db,
-                                    charset = 'utf8',
+                                    charset = 'utf8mb4',
                                     cursorclass = pymysql.cursors.DictCursor,
                                     autocommit = True)
         self.connection = connection

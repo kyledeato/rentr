@@ -51,6 +51,7 @@ class User:
     def update(cls, data):
         query = 'UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s WHERE id = %(user_id)s;'
         connectToMySQL('rentr_db').query_db(query, data)
+
         
     @staticmethod
     def update_is_valid(user):
