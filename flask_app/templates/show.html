@@ -28,8 +28,7 @@
         <h1>Dashboard</h1>
         
         <div class="user-rents">
-            <h2>My Posts</h2>
-                {% for rent in rents%}
+            <h2>show</h2>
                 <div class="rents" value="{{ rent.id}}">
                     
                     <h4>{{rent.name}}</h4>
@@ -38,9 +37,8 @@
                     <p>Posted at: {{rent.created_at}}</p>
                     <img style="width: 15rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
                     <a href="/delete/{{rent.id}}">Delete</a>
-                    <a href="/show/{{rent.id}}">View</a>
+                    <a href="/show">View</a>
                 </div>
-                {% endfor %}
         </div>
     </main>
         <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>

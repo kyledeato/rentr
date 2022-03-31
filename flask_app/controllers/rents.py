@@ -2,7 +2,7 @@ from flask import render_template, session, redirect, request, flash
 from flask_app import app
 from flask_app.models.rent import Rent
 import os
-# from werkzeug.utils import secure_filename
+
 
 #DISPLAY ROUTES -----------------------
 # dashboard
@@ -17,7 +17,8 @@ def dashboard():
         return redirect('/login')
     data = {"id": session['user_id']}
     rents = Rent.get_rents_by_id(data)
-    return render_template('dashboard.html', rents = rents)
+    logged_user = session['user_id']
+    return render_template('dashboard.html', rents = rents,logged_user=logged_user)
 
 @app.route('/rentboard')
 def rentboard():
@@ -32,6 +33,23 @@ def create():
     if 'user_id' not in session:
         return redirect('/login')
     return render_template('create.html')
+
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {"id": id}
+    Rent.delete(data)
+    return redirect('/dashboard')
+
+@app.route('/show/<int:id>')
+def show(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    rent = Rent.get_one({"id": id})
+    logged_user = session['user_id']
+    return render_template('show.html', rent = rent, logged_user=logged_user)
 
 #ACTION ROUTES -----------------------
 @app.route('/create-post', methods=['POST'])
@@ -52,7 +70,7 @@ def create_post():
     image_name = request.form["image_name"]
     if image:
         image_name = Rent.no_space(image_name)
-        image.save(os.path.join(app.static_folder, f"img/{logged_user}-{image_name}.webp"))
+        image.save(os.path.join(app.static_folder, f"img/{image_name}.webp"))
     data = {
         "name": request.form["name"],
         "description": request.form["description"],

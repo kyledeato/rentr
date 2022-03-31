@@ -28,7 +28,9 @@ COLORS:
   color: #1BA098;
 }
 
-
+#chat {
+  color: black;
+}
 a {
     text-decoration: none; 
     color: white;

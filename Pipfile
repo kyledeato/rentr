@@ -8,6 +8,9 @@ flask = "*"
 pymysql = "*"
 bcrypt = "*"
 flask-bcrypt = "*"
+flask-socketio = "*"
+werkzeug = "==2.0.3"
+flask-session = "*"
 
 [dev-packages]
 

@@ -39,6 +39,29 @@ class Rent:
             return rents
 
     @classmethod
+    def get_one(cls, data):
+        query = "SELECT * FROM rents JOIN users ON rents.user_id = users.id WHERE rents.id = %(id)s;"
+        results = connectToMySQL('rentr_db').query_db(query, data)
+        if results:
+            temp_rents = cls(results[0])
+            user_data = {
+                    "id": results[0]["users.id"],
+                    "first_name": results[0]["first_name"],
+                    "last_name": results[0]["last_name"],
+                    "name": results[0]["name"],
+                    "email": results[0]["email"],
+                    "description": results[0]["description"],
+                    "location": results[0]["location"],
+                    "image_name": results[0]["image_name"],
+                    "created_at": results[0]["created_at"],
+                    "updated_at": results[0]["updated_at"],
+                    "password": results[0]["password"],
+                }
+            temp_rents.creator = user.User(user_data)
+            return temp_rents
+
+
+    @classmethod
     def get_rents_by_id(cls, data):
         query = 'SELECT * FROM rents JOIN users ON rents.user_id = users.id WHERE users.id = %(id)s'
         results = connectToMySQL('rentr_db').query_db(query, data)
@@ -59,6 +82,12 @@ class Rent:
     def get_img(cls):
         query = 'SELECT image FROM rents WHERE id = 3;'
         return connectToMySQL('rentr_db').query_db(query)    
+
+    @classmethod
+    def delete(cls, data):
+        query = 'DELETE FROM rents WHERE id = %(id)s'
+        connectToMySQL('rentr_db').query_db(query, data)
+
 
 
     @staticmethod

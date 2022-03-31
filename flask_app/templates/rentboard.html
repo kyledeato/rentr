@@ -33,8 +33,8 @@
                 <h2>{{rent.name}}</h2>
                 <p>{{rent.description}}</p>
                 <p>Posted by: {{rent.creator.first_name}} {{rent.creator.last_name}}</p>
-                <img style="width: 15rem" src="{{url_for('static',filename='img/')}}{{logged_user}}-{{rent.image_name}}.webp">
-                <p>{{url_for('static',filename='img/')}}{{logged_user}}-{{rent.image_name}}.webp</p>
+                <img style="width: 15rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
+                
             </div>
             {% endfor %}
         {% endif %}
