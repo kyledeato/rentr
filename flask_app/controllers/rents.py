@@ -77,6 +77,7 @@ def create_post():
     image_name = request.form["image_name"]
     if image:
         image_name = Rent.no_space(image_name)
+        print(image_name)
         image.save(os.path.join(app.static_folder, f"img/{image_name}.webp"))
     data = {
         "name": request.form["name"],

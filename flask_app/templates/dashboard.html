@@ -30,14 +30,13 @@
         <div class="user-rents">
             <h2>My Posts</h2>
                 {% for rent in rents%}
-                <div class="rents" value="{{ rent.id}}">
+                <div class="rents flex-display " value="{{ rent.id}}">
                     
-                    <h4>{{rent.name}}</h4>
-                    <p>{{rent.description}}</p>
-                    <p>Location: {{rent.location}}</p>
-                    <p>Posted at: {{rent.created_at}}</p>
-                    <img style="width: 15rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
-                    <a href="/delete/{{rent.id}}">Delete</a>
+                    <h2 id="name">{{rent.name}}</h2>
+                    <p id="description">{{rent.description}}</p>
+                    <img style="width: 20rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
+                    <br>
+                    <a href="/delete/{{rent.id}}" >Delete</a>
                     <a href="/show/{{rent.id}}">View</a>
                     <a href="/edit/{{rent.id}}">Edit</a>
                 </div>

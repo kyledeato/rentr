@@ -26,15 +26,19 @@
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       <main>
         <h1>Rent Board</h1>
-        <div class="rent-board">
+        <div class="rent-board ">
         {% if rents%}
             {% for rent in rents %}
-            <div class="rents">
-                <h2>{{rent.name}}</h2>
-                <p>{{rent.description}}</p>
-                <p>From {{rent.creator.first_name}} {{rent.creator.last_name}} | Posted on {{rent.created_at}}</p>
-                <img style="width: 15rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
-                <a href="/show/{{rent.id}}">View</a>
+            <div class="rents flex-display">
+                <div class="card-top">
+                    <h2 id="name">{{rent.name}}</h2>
+                    <p id="creator">From {{rent.creator.first_name}} {{rent.creator.last_name}} | Posted on {{rent.created_at}}</p>
+                </div>
+                <p id="description">{{rent.description}}</p>
+                <img style="width: 20rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
+                
+                <br>
+                <a href="/show/{{rent.id}}" id="interested">Interested? Click Here!</a>
             </div>
             {% endfor %}
         {% endif %}

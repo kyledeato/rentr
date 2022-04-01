@@ -35,7 +35,8 @@
                     <p>{{rent.description}}</p>
                     <p>Location: {{rent.location}}</p>
                     <p>Posted at: {{rent.created_at}}</p>
-                    <img style="width: 15rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
+                    <img style="width: 20rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
+                    <p>{{rent.image_name}}</p>
                     <a href="/delete/{{rent.id}}">Delete</a>
                     <a href="/show">View</a>
                 </div>

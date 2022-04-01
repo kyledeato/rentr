@@ -82,26 +82,71 @@ a {
     padding: 20px 40px;
   }
  
+body {
+  background-color: #F0F2F5;
+  height: 100%;
+}
 /* Main */
 main {
-    background-color: #082438;
-    height: 100vh;
     padding: 0px 100px;
+    
+  
 }
 
 main h1 {
   font-size: 40px;
   padding: 28px 0px;
   color: #1BA098;
+  
 }
 
-/* RENT BOARD */
+h2 {
+  color: black;
+}
+
+.rent-board {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+/* RENT CARD */
 .rents {
-  background-color: #051622;
+  background-color: rgb(222,185,146);
   padding: 20px;
   border-radius: 25px;
   margin-bottom: 25px;
+  flex-direction: column;
+  width: 800px;
+  color: #000000;
+  box-shadow: 0 7px 30px -10px rgba(54, 54, 54, 0.5);
 }
+
+.rents a{
+  text-decoration: underline;
+  color:  #1BA098;
+}
+.rents a:hover{
+  text-decoration: underline;
+  color:  hsl(245, 75%, 52%);;
+}
+
+
+#creator {
+  font-size: 13px;
+  color: #000000;
+}
+
+#description {
+  font-size: 16px;
+  color: #000000;
+}
+
+#interested {
+  color: #000000;
+}
+
+
 
 
 /* CREATE A POSTING */
