@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <title>Dashboard | Rentr</title>
+    <title>Rentboard | Rentr</title>
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
@@ -32,9 +32,9 @@
             <div class="rents">
                 <h2>{{rent.name}}</h2>
                 <p>{{rent.description}}</p>
-                <p>Posted by: {{rent.creator.first_name}} {{rent.creator.last_name}}</p>
+                <p>From {{rent.creator.first_name}} {{rent.creator.last_name}} | Posted on {{rent.created_at}}</p>
                 <img style="width: 15rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
-                
+                <a href="/show/{{rent.id}}">View</a>
             </div>
             {% endfor %}
         {% endif %}

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <title>Dashboard | Rentr</title>
+    <title>Show | Rentr</title>
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
@@ -25,10 +25,10 @@
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       <main>
-        <h1>Dashboard</h1>
+        <h1>Show</h1>
         
         <div class="user-rents">
-            <h2>show</h2>
+
                 <div class="rents" value="{{ rent.id}}">
                     
                     <h4>{{rent.name}}</h4>
@@ -39,6 +39,22 @@
                     <a href="/delete/{{rent.id}}">Delete</a>
                     <a href="/show">View</a>
                 </div>
+                <form action="https://formsubmit.co/{{rent.creator.email}}" method="POST">
+                    <h4>Message {{rent.creator.first_name}} {{rent.creator.last_name}}</h4>
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="phone" placeholder="Phone" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" rows="4" placeholder="Ex. I'd like to rent..."></textarea>
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
         </div>
     </main>
         <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>

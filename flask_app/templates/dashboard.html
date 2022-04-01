@@ -39,6 +39,7 @@
                     <img style="width: 15rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
                     <a href="/delete/{{rent.id}}">Delete</a>
                     <a href="/show/{{rent.id}}">View</a>
+                    <a href="/edit/{{rent.id}}">Edit</a>
                 </div>
                 {% endfor %}
         </div>

@@ -4,7 +4,7 @@ from flask_app import app
 from flask_app.models import user
 import re
 
-img_id = 0
+
 
 class Rent: 
     def __init__(self, data):
@@ -87,6 +87,12 @@ class Rent:
     def delete(cls, data):
         query = 'DELETE FROM rents WHERE id = %(id)s'
         connectToMySQL('rentr_db').query_db(query, data)
+    
+    @classmethod
+    def update(cls, data):
+        query = 'UPDATE recipes SET name = %(name)s, description = %(description)s, image_name = %(image_name)s, location= %(location)s, user_id = %(user_id)s'
+        connectToMySQL('rentr_db').query_db(query, data)
+        return data["id"]
 
 
 

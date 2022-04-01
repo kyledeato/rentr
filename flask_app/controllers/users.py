@@ -2,6 +2,7 @@ from flask import render_template, session, redirect, request
 from flask_app import app
 from flask_app.models.user import User
 from flask_app.models.rent import Rent
+import smtplib
 
 # LOGINS AND REGISTRATION
 @app.route('/login')
