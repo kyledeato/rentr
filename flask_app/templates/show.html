@@ -25,36 +25,36 @@
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       <main>
-        <h1>Show</h1>
+        <h1>Show | Rentr</h1>
         
-        <div class="user-rents">
+        <div class="rent-board">
 
                 <div class="rents" value="{{ rent.id}}">
                     
-                    <h4>{{rent.name}}</h4>
-                    <p>{{rent.description}}</p>
-                    <p>Location: {{rent.location}}</p>
-                    <p>Posted at: {{rent.created_at}}</p>
+                    <div class="border-bot">
+                        <h2 id="name">{{rent.name}} </h2>
+                        <p id="creator">Posted on {{rent.created_at}}</p>
+                    </div>
+
+                    <p id="description">{{rent.description}}</p>
                     <img style="width: 20rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
-                    <p>{{rent.image_name}}</p>
-                    <a href="/delete/{{rent.id}}">Delete</a>
-                    <a href="/show">View</a>
+                    
                 </div>
-                <form action="https://formsubmit.co/{{rent.creator.email}}" method="POST">
+                <form action="https://formsubmit.co/{{rent.creator.email}}" id="background-gold" class="email"method="POST">
                     <h4>Message {{rent.creator.first_name}} {{rent.creator.last_name}}</h4>
                     <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Name" required>
+                        <input type="text" id="name" placeholder="Your Name" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="email" placeholder="Your Email" required>
+                        <input type="text" id="email" placeholder="Your Email"  class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="phone" placeholder="Phone" required>
+                        <input type="text" id="phone" placeholder="Phone" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" id="message" rows="4" placeholder="Ex. I'd like to rent..."></textarea>
+                        <textarea name="message" id="message" rows="4" placeholder="Ex. I'd like to rent..." class="form-control"></textarea>
                     </div>
-                    <button type="submit">Send</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
                 </form>
         </div>
     </main>

@@ -1,7 +1,18 @@
 from flask import render_template, session, redirect, request, flash
 from flask_app import app
 from flask_app.models.rent import Rent
+from flask_app.models.user import User
 import os
+# from flask_mail import Mail, Message
+
+# mail= Mail(app)
+# app.config['MAIL_SERVER']='smtp.gmail.com'
+# app.config['MAIL_PORT'] = 465
+# app.config['MAIL_USERNAME'] = 'yourId@gmail.com'
+# app.config['MAIL_PASSWORD'] = '*****'
+# app.config['MAIL_USE_TLS'] = False
+# app.config['MAIL_USE_SSL'] = True
+# mail = Mail(app)
 
 
 #DISPLAY ROUTES -----------------------
@@ -17,8 +28,9 @@ def dashboard():
         return redirect('/login')
     data = {"id": session['user_id']}
     rents = Rent.get_rents_by_id(data)
+    user = User.get_by_id(data)
     logged_user = session['user_id']
-    return render_template('dashboard.html', rents = rents,logged_user=logged_user)
+    return render_template('dashboard.html', rents = rents,logged_user=logged_user, user=user)
 
 @app.route('/rentboard')
 def rentboard():
@@ -117,4 +129,17 @@ def update_post():
     }
     Rent.update(data)
     return redirect('/dashboard')
+
+# @app.route('/send', methods=['POST'])
+# def send():
+#     user_id = session['user_id']
+#     rents = Rent.get_rents_by_id(user_id)
+
+#     app.config['MAIL_SERVER']='smtp.gmail.com'
+#     app.config['MAIL_PORT'] = 465
+#     app.config['MAIL_USERNAME'] = f"{rents}"
+#     app.config['MAIL_PASSWORD'] = '*****'
+#     app.config['MAIL_USE_TLS'] = False
+#     app.config['MAIL_USE_SSL'] = True
+#     mail = Mail(app)
     

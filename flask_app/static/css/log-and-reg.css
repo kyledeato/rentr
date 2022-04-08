@@ -6,7 +6,12 @@ h1 {
     color: #1BA098;
 }
 
+#log-title {
+    color: #DEB992;
+}
+
 .log-reg-container {
+    margin-top: 50px;
     background-color: #112d32;
     padding: 20px 100px;
     border-radius: 25px;
@@ -20,3 +25,9 @@ h1 {
 button {
     background-color: #1BA098;
 }
+
+body {
+    background-color: #1BA098;
+    height: 100%;
+  }
+

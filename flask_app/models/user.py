@@ -51,6 +51,13 @@ class User:
     def update(cls, data):
         query = 'UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s WHERE id = %(user_id)s;'
         connectToMySQL('rentr_db').query_db(query, data)
+    
+    # @classmethod
+    # def get_email_by_id(cls, data):
+    #     query = 'SELECT email FROM users WHERE id = %(id)s'
+    #     result =  connectToMySQL('rentr_db').query_db(query, data)
+    #     if result:
+    #         return cls(result[0])
 
         
     @staticmethod

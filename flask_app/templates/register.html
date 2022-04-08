@@ -14,14 +14,8 @@
     <main class="flex-display justify-center align-center">
         
         <div class="log-reg-container flex-display">
-            <div class="log-reg">
-                <!-- need img  -->
-                <h1 id="logo">RENTR.</h1>
-                <p>Image goes here</p>
-                <p>Make renting anything easy! </p>
-            </div>
             <form class="log-reg" action="/register-account" method="post">
-                <h1>Create An Account</h1>
+                <h1 id="log-title">Create An Account | Rentr</h1>
                 <p>Join to get started!</p>
                 {% with messages = get_flashed_messages()%}
                     {% if messages %}
@@ -47,6 +41,7 @@
                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
                 </div>
                 <button type="submit" class="btn ">Login</button>
+                
                 <p>Already have an account? <a href="/login" id="text-color">Login</a></p>
                 <h6>Just want to view the Rent Board? <a href="/rentboard" id="text-color">Click Here!</a></h6>
             </form>

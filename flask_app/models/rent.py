@@ -95,7 +95,6 @@ class Rent:
         return data["id"]
 
 
-
     @staticmethod
     def is_valid(data):
         is_valid = True

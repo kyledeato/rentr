@@ -26,23 +26,29 @@
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       <main>
         <h1>Dashboard</h1>
-        
-        <div class="user-rents">
-            <h2>My Posts</h2>
+        <div class="user-rents rent-board ">
+            <h2 id="user_name">Hello {{user.first_name}} {{user.last_name}}</h2>
+            <h4 id="chat">Your Posts | Rentr</h4>
                 {% for rent in rents%}
                 <div class="rents flex-display " value="{{ rent.id}}">
-                    
-                    <h2 id="name">{{rent.name}}</h2>
+                    <div class="border-bot">
+                        <h2 id="name">{{rent.name}} </h2>
+                        <p id="creator">Posted on {{rent.created_at}}</p>
+                    </div>
+
                     <p id="description">{{rent.description}}</p>
                     <img style="width: 20rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
                     <br>
-                    <a href="/delete/{{rent.id}}" >Delete</a>
-                    <a href="/show/{{rent.id}}">View</a>
-                    <a href="/edit/{{rent.id}}">Edit</a>
+                    <div class="actions flex-display">
+                        <a href="/delete/{{rent.id}}" >Delete </a>
+                        
+                        <a href="/edit/{{rent.id}}">Edit</a>
+                    </div>
                 </div>
                 {% endfor %}
         </div>
     </main>
+        <script src="https://kit.fontawesome.com/08c852fef7.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

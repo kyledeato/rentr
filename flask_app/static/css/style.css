@@ -48,6 +48,7 @@ a {
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+    
   }
   
   /* The navigation menu links */
@@ -77,31 +78,33 @@ a {
   #hamburger-menu {
     font-size: 40px;
     cursor: pointer;
-    color: #1BA098;
+    color: black;
     position: fixed;
     padding: 20px 40px;
   }
  
 body {
-  background-color: #F0F2F5;
+  background-color: #1BA098;
   height: 100%;
 }
 /* Main */
 main {
     padding: 0px 100px;
-    
   
 }
 
 main h1 {
   font-size: 40px;
   padding: 28px 0px;
-  color: #1BA098;
+  color: black;
   
 }
 
+#user_name {
+  color: #000000;
+}
 h2 {
-  color: black;
+  color: #c9d1d9;
 }
 
 .rent-board {
@@ -112,40 +115,56 @@ h2 {
 }
 /* RENT CARD */
 .rents {
-  background-color: rgb(222,185,146);
+  background-color: #0D1117;
   padding: 20px;
   border-radius: 25px;
   margin-bottom: 25px;
   flex-direction: column;
   width: 800px;
-  color: #000000;
+  color: #fff;
   box-shadow: 0 7px 30px -10px rgba(54, 54, 54, 0.5);
 }
 
 .rents a{
   text-decoration: underline;
-  color:  #1BA098;
+  color:  #fff;
+  padding-right: 5px;
 }
 .rents a:hover{
   text-decoration: underline;
-  color:  hsl(245, 75%, 52%);;
+  color:  #DEB992;
+}
+
+.border-bot{
+  border-bottom: 2px solid #1BA098;
+  margin-bottom: 10px;
+}
+.actions {
+  justify-content: end;
 }
 
 
 #creator {
   font-size: 13px;
-  color: #000000;
+  color: #c9d1d9;
 }
 
 #description {
   font-size: 16px;
-  color: #000000;
+  color: #c9d1d9;
 }
 
 #interested {
-  color: #000000;
+  color: #c9d1d9;
 }
 
+#interested:hover {
+  color: #DEB992;
+}
+
+#background-gold {
+  background-color: #DEB992;
+}
 
 
 
@@ -161,9 +180,17 @@ label {
   /* box-shadow: 5px 5px 10px #DEB992; */
 }
 
+/* EMAIL */
 
-
-
+.email {
+  background-color: #1BA098;
+  padding: 20px;
+  border-radius: 25px;
+  margin-bottom: 25px;
+  flex-direction: column;
+  width: 800px;
+  box-shadow: 0 7px 30px -10px rgba(54, 54, 54, 0.5);
+}
 
 
 
