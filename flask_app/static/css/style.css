@@ -199,18 +199,37 @@ label {
 
 
 
-
-
-
-
-
-
-
-
-
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
+  /* @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+  } */
+
+  /* iPhone XS Max, XR ----------- */
+@media only screen and (max-device-width: 414px) and (max-device-height: 896px){
+  /* Styles */
+  .sidenav {padding-top: 15px;}
+
+  .sidenav a {font-size: 18px;}
+
+  .rents {
+    background-color: #0D1117;
+    width: fit-content;
+    margin: 10px 0px;
+    color: #fff;
   }
+}
+@media only screen and (min-device-width: 815px) and (max-device-height: 1180px){
+  /* Styles */
+  .sidenav {padding-top: 15px;}
+
+  .sidenav a {font-size: 18px;}
+
+  .rents {
+    background-color: #0D1117;
+    width: -webkit-fill-available;
+    margin: 10px 0px;
+    color: #fff;
+  }
+}
