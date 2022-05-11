@@ -123,6 +123,9 @@ h2 {
   width: 800px;
   color: #fff;
   box-shadow: 0 7px 30px -10px rgba(54, 54, 54, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .rents a{
@@ -228,7 +231,7 @@ label {
 
   .rents {
     background-color: #0D1117;
-    width: -webkit-fill-available;
+    width: 700px;
     margin: 10px 0px;
     color: #fff;
   }

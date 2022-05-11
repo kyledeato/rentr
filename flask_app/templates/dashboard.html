@@ -16,8 +16,10 @@
         <a href="/rentboard">Rent Board</a>
         <a href="/create">Create A Posting</a>
         <a href="/account">My Account</a>
-        <a href="/login">Login</a>
+        {%if session['user_id']%}
         <a href="/logout">Logout</a>
+        {%endif%}
+        
       </div>
       
       <!-- Use any element to open the sidenav -->

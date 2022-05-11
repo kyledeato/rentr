@@ -16,7 +16,6 @@
         <a href="/rentboard">Rent Board</a>
         <a href="/create">Create A Posting</a>
         <a href="/account">My Account</a>
-        <a href="/login">Login</a>
         <a href="/logout">Logout</a>
       </div>
       
@@ -40,7 +39,7 @@
                     <img style="width: 20rem" src="{{url_for('static',filename='img/')}}{{rent.image_name}}.webp">
                     
                 </div>
-                <form action="https://formsubmit.co/{{rent.creator.email}}" id="background-gold" class="email"method="POST">
+                <form action="/" id="background-gold" class="email">
                     <h4>Message {{rent.creator.first_name}} {{rent.creator.last_name}}</h4>
                     <div class="form-group">
                         <input type="text" id="name" placeholder="Your Name" class="form-control" required>
@@ -54,7 +53,8 @@
                     <div class="form-group">
                         <textarea name="message" id="message" rows="4" placeholder="Ex. I'd like to rent..." class="form-control"></textarea>
                     </div>
-                    <input type="hidden" name="_next" value="/dashboard">
+                    <!-- value needs to be changed  -->
+                    <input type="hidden" name="_next" value="dashboard.html">
                     <button type="submit" class="btn btn-primary">Send</button>
                 </form>
         </div>

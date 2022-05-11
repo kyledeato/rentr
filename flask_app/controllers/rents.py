@@ -3,16 +3,6 @@ from flask_app import app
 from flask_app.models.rent import Rent
 from flask_app.models.user import User
 import os
-# from flask_mail import Mail, Message
-
-# mail= Mail(app)
-# app.config['MAIL_SERVER']='smtp.gmail.com'
-# app.config['MAIL_PORT'] = 465
-# app.config['MAIL_USERNAME'] = 'yourId@gmail.com'
-# app.config['MAIL_PASSWORD'] = '*****'
-# app.config['MAIL_USE_TLS'] = False
-# app.config['MAIL_USE_SSL'] = True
-# mail = Mail(app)
 
 
 #DISPLAY ROUTES -----------------------
@@ -57,11 +47,10 @@ def delete(id):
 
 @app.route('/show/<int:id>')
 def show(id):
-    if 'user_id' not in session:
-        return redirect('/')
+    
     rent = Rent.get_one({"id": id})
-    logged_user = session['user_id']
-    return render_template('show.html', rent = rent, logged_user=logged_user)
+    # logged_user = session['user_id']
+    return render_template('show.html', rent = rent)
 
 @app.route('/edit/<int:id>')
 def edit_recipe(id):
@@ -129,17 +118,3 @@ def update_post():
     }
     Rent.update(data)
     return redirect('/dashboard')
-
-# @app.route('/send', methods=['POST'])
-# def send():
-#     user_id = session['user_id']
-#     rents = Rent.get_rents_by_id(user_id)
-
-#     app.config['MAIL_SERVER']='smtp.gmail.com'
-#     app.config['MAIL_PORT'] = 465
-#     app.config['MAIL_USERNAME'] = f"{rents}"
-#     app.config['MAIL_PASSWORD'] = '*****'
-#     app.config['MAIL_USE_TLS'] = False
-#     app.config['MAIL_USE_SSL'] = True
-#     mail = Mail(app)
-    

@@ -22,6 +22,8 @@ def logout():
 
 @app.route('/account')
 def account():
+    if 'user_id' not in session:
+        return redirect('/login')
     data = {"id": session["user_id"]}
     users = User.get_by_id(data)
     return render_template('account.html', users = users)
