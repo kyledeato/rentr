@@ -31,10 +31,10 @@
 
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Ability to create an account to post a rent.
+- Logged in users has full CRUD (create, read, update, delete) ability to their post(s).
+- Logged in users has image upload to show what they are renting out.
+- Non registered users can see the rent-board and message the user through email to rent.
 
 
 ## Screenshots
@@ -43,9 +43,6 @@ List the ready features here:
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
 Have Python installed and to set up local environment.
 Windows:
 ```
@@ -64,37 +61,38 @@ While virtual environment is running, use this to start the application.
 python server.py
 ```
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
+Create a new account or use
+email: kyledeato@gmail.com
+password: password
 
-`write-your-code-here`
+NOTE: users have to type a image name in order for the picture to have a unique id. To get pass this, just type random letters or numbers.
 
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+Project is: _in progress_
 
 
 ## Room for Improvement
 Include areas you believe need improvement / could be improved. Also add TODOs for future development.
 
 Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Users not having to input a image name (id).
+- Make most recent post to the top of the rent-board.
+- A better User Interface.
 
 To do:
-- Feature to be added 1
-- Feature to be added 2
+- Css, css, css, and maybe uhhh more css?
+- Make image upload better.
 
 
 ## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+-Featured on Coding Dojo's learning platform.
 
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by Kyle Deato.
+Email: kyledeato@gmail.com
+(and no, my actual password is not password...don't even try)
 
 
 <!-- Optional -->
