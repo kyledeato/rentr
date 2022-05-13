@@ -1,10 +1,10 @@
 # Rentr
-> Outline a brief description of your project.
+> A full CRUD online rental marketplace allowing users to rent out their belongings to other people.
 <!-- > Live demo [_here_](https://www.example.com). If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
 * [General Info](#general-information)
-* [Technologies Used](#technologies-used)
+* [Technologies and Frameworks Used](#technologies-and-frameworks-used)
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
@@ -17,17 +17,17 @@
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
+- A centralized marketplace for renting or renting out anything from users.
+- Intends to take out the problem of not knowing where to post your ad like Facebook, Craigslist, etc., and just have one place specifically for it.
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
-## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+## Technologies and Frameworks Used
+- Python3 - version 3.10.2
+- MySQL - version 8.0.22
+- Jinja2
+- BCrypt
+- OS
 
 
 ## Features
@@ -46,8 +46,23 @@ List the ready features here:
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
 Proceed to describe how to install / setup one's local environment / get started with the project.
-
-
+Have Python installed and to set up local environment.
+Windows:
+```
+pip install pipenv
+```
+Mac:
+```
+pip3 install pipenv
+```
+Active virtual environment.
+```
+pipenv shell
+```
+While virtual environment is running, use this to start the application.
+```
+python server.py
+```
 ## Usage
 How does one go about using it?
 Provide various use cases and code examples here.
