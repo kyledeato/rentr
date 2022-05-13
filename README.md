@@ -44,6 +44,7 @@
 
 ## Setup
 Have Python installed and to set up local environment.
+
 Windows:
 ```
 pip install pipenv
