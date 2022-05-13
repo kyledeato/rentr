@@ -63,7 +63,9 @@ python server.py
 ```
 ## Usage
 Create a new account or use
+
 email: kyledeato@gmail.com
+
 password: password
 
 NOTE: users have to type a image name in order for the picture to have a unique id. To get pass this, just type random letters or numbers.
