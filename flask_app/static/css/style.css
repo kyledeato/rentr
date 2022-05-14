@@ -30,6 +30,12 @@ COLORS:
 
 #chat {
   color: black;
+  border: black;
+}
+#gold {
+  background-color: #DEB992;
+  border: black;
+  color: black;
 }
 a {
     text-decoration: none; 
