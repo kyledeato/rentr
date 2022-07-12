@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/5b057a4f-144e-4109-bcc8-831e92846925/resourceGroups/az104-09a-rg1/providers/Microsoft.Web/sites/rentr",
-    "appService.deploySubpath": "."
-}
