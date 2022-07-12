@@ -38,7 +38,6 @@
 
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 ![Login](/read_me_images/account.png)
 ![Dashboard](/read_me_images/Dashboard.png)
