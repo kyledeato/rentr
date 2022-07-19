@@ -1,6 +1,7 @@
 # Rentr
 > A full CRUD online rental marketplace allowing users to rent out their belongings to other people.
-Live Demo: http://18.144.87.221/
+
+> Click Here for  <a href="http://18.144.87.221/" target="_blank">LIVE DEMO</a> 
 <!-- > Live demo [_here_](https://www.example.com). If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
